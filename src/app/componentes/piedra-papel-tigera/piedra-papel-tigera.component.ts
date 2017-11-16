@@ -28,13 +28,13 @@ export class PiedraPapelTigeraComponent implements OnInit {
     console.log(this.juego);
     switch (elec) {
       case 1:
-        this.user ="../assets/imagenes/piedra.png";
+        this.user ="./assets/imagenes/piedra.png";
         break;
         case 2:
-        this.user ="../assets/imagenes/papel.png";
+        this.user ="./assets/imagenes/papel.png";
         break;
         case 3:
-        this.user ="../assets/imagenes/tijera.png";
+        this.user ="./assets/imagenes/tijera.png";
         break;
     
       default:
@@ -42,13 +42,13 @@ export class PiedraPapelTigeraComponent implements OnInit {
     }
     switch (this.juego.numeroSecreto) {
       case 1:
-        this.maquina ="../assets/imagenes/piedra.png";
+        this.maquina ="./assets/imagenes/piedra.png";
         break;
         case 2:
-        this.maquina ="../assets/imagenes/papel.png";
+        this.maquina ="./assets/imagenes/papel.png";
         break;
         case 3:
-        this.maquina ="../assets/imagenes/tijera.png";
+        this.maquina ="./assets/imagenes/tijera.png";
         break;
     
       default:
