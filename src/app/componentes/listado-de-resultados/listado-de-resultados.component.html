@@ -1,11 +1,4 @@
-<!--div *ngFor="let juego of listado">
-
-<p> {{juego.nombre}} </p>
-<p> {{juego.jugador}} </p>
-
-</div-->
-
-<table class="table table-condensed">
+<table class="table table-condensed" style="background:gray">
     <thead>
       <tr>
         <th>Juego</th>
@@ -14,12 +7,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let juego of listado">
+      <tr *ngFor="let juego of listado" >
         <td>{{juego.nombre}} </td>
-        <td>{{juego.jugador}} </td> 
-        <td *ngIf="juego.gano">Gano </td>   
-        <td *ngIf="!juego.gano">Perdio</td>     
+        <td>{{juego.jugador}} </td>
+        <td *ngIf="juego.gano && juego.nombre=='Adivina el número'">GANO (numero secreto={{juego.numeroSecreto}})</td>
+        <td *ngIf="juego.gano && juego.nombre=='Agilidad'">GANO (cuenta {{juego.n1}} {{juego.cuenta}} {{juego.n2}} = {{juego.resultado}})</td>
+        <td *ngIf="juego.nombre=='Piedra Papel Tijera'">{{juego.resultado}}</td>
+        <td *ngIf="juego.nombre=='Anagrama' && juego.resultado=='true'">GANO</td>
+        <td *ngIf="juego.nombre=='Anagrama' && juego.resultado=='false'">PERDIO (la palabra correcta era {{juego.palabraOrdenada}})</td>
       </tr>
-     
     </tbody>
   </table>

@@ -4,6 +4,7 @@ export abstract class Juego {
   public gano = false;
 
   constructor(nombre?: string, gano?: boolean,jugador?:string) {
+    console.log("Clase JUEGO",jugador)
     if (nombre)
       this.nombre = nombre;
 
@@ -11,14 +12,12 @@ export abstract class Juego {
       this.gano = gano;
     if(jugador)
       this.jugador=jugador;
-    else
-      this.jugador= "natalia natalia";
   }
 
 
   
 
-  public abstract verificar():boolean; 
+  public abstract verificar():any; 
   
   public retornarAyuda() {
     

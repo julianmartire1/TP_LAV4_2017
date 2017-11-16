@@ -1,3 +1,6 @@
+
+import { PiedraPapelTigeraComponent } from './componentes/piedra-papel-tigera/piedra-papel-tigera.component';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -25,6 +28,8 @@ import { AdivinaMasListadoComponent } from './componentes/adivina-mas-listado/ad
 import { AgilidadMasListadoComponent } from './componentes/agilidad-mas-listado/agilidad-mas-listado.component';
 import { RuteandoModule } from './ruteando/ruteando.module';
 import { ListadoComponent } from './componentes/listado/listado.component';
+
+import { Validators, FormBuilder, FormControl, FormGroup} from '@angular/forms';
 // declaro donde quiero que se dirija
 /*
 const MiRuteo = [{path: 'error' , component: ErrorComponent},
@@ -54,6 +59,21 @@ import { AgmCoreModule } from '@agm/core';
 import { InputJugadoresComponent } from './componentes/input-jugadores/input-jugadores.component';
 import { SexoPipe } from './pipes/sexo.pipe';
 
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatMenuModule} from '@angular/material';
+import {MatIconModule} from '@angular/material';
+import {MatListModule} from '@angular/material';
+import {MatInputModule} from '@angular/material';
+import {MatProgressBarModule} from '@angular/material';
+import {MatToolbarModule} from '@angular/material';
+import {MatSelectModule} from '@angular/material';
+import { TatetiComponent } from './componentes/tateti/tateti.component'
+import { VerificarService } from './servicios/verificar.service';
+import { PptlistadoComponent } from './componentes/pptlistado/pptlistado.component';
+import { AnagramalistadoComponent } from './componentes/anagramalistado/anagramalistado.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,7 +98,11 @@ import { SexoPipe } from './pipes/sexo.pipe';
     MapaDeGoogleComponent,
     JugadoresListadoComponent,
     InputJugadoresComponent,
-    SexoPipe
+    SexoPipe,
+    PiedraPapelTigeraComponent,
+    TatetiComponent,
+    PptlistadoComponent,
+    AnagramalistadoComponent
   ],
   imports: [
     BrowserModule,
@@ -87,12 +111,27 @@ import { SexoPipe } from './pipes/sexo.pipe';
     HttpModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
-    })
+    }),
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MatButtonModule, 
+    MatCheckboxModule,
+    MatMenuModule,
+    MatIconModule,
+    MatListModule,
+    MatInputModule,
+    MatProgressBarModule,
+    MatToolbarModule,
+    MatSelectModule
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)
   ],
-  providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService],
+  exports: [
+    MatButtonModule, 
+    MatCheckboxModule
+  ],
+  providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService,FormBuilder,VerificarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,37 +2,43 @@
 <!--app-menu></app-menu-->
 <!-- index.html -->
 
+<div class="juego">
+    <mat-form-field class="example-full-width" style="width:100%" >
+        <input matInput placeholder="Primer número" [(ngModel)]="nuevoJuego.number1" type="text" readonly>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" style="width:100%" >
+          <input matInput placeholder="Operador" [(ngModel)]="nuevoJuego.cuenta" type="text" readonly>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" style="width:100%" >
+            <input matInput placeholder="Segundo número" [(ngModel)]="nuevoJuego.number2" type="text" readonly>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" style="width:100%" >
+              <input matInput placeholder="Respuesta" [(ngModel)]="ingresado" type="text" >
+            </mat-form-field>
 
-<form name="juego">
-<ul>
-   <li>
-   Primer número: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-  
-  </li>
-  <li>
-   Operador: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-    
-  </li>
-  <li>
-   Segundo número: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-    
-  </li>
-  <li>
-    Respuesta: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%"/>
+
+          
+
      
-   </li>
-  <li>
-    <h2 [hidden]="ocultarVerificar" ><button (click)="verificar()" class="btn btn-success btn-lg">Verificar {{Tiempo}} </button></h2>
-  </li>
-  <li>
-    <h2 [hidden]="!ocultarVerificar"><button  (click)="NuevoJuego()"  class="btn btn-info btn-lg">Nuevo</button></h2>
-  </li>
-  <li>
-    <h2><p><i class="fa fa-spinner fa-spin"></i>Esperando numero...</p></h2>
+          <h2 [hidden]="!ocultarVerificar" ><button mat-raised-button (click)="NuevoJuego()" style="width:100%">Nuevo</button></h2>
+    
+    
+          <div [hidden]="ocultarVerificar">
+              <h2 [hidden]="ocultarVerificar"><button mat-raised-button (click)="verificar()" style="width:95%;background:#4CAF50">Verificar {{Tiempo}} </button></h2>
+              <h2 style="text-align:center">Esperando que ingrese un número</h2>
+              <mat-progress-bar mode="indeterminate" ></mat-progress-bar>
+          </div>
 
-    <h3 [hidden]="!nuevoJuego.gano">usted adivino el número</h3>
-    <h3 [hidden]="nuevoJuego.gano">usted aún no gano </h3>
-  </li>
-</ul>
+          <h3 [hidden]="!nuevoJuego.gano"><div class="alert alert-success alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <strong>USTED GANO!</strong>
+            </div></h3>
+          <h3 *ngIf="!band"><div class="alert alert-danger alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <strong>USTED PERDIO!</strong>
+            </div></h3>
+    
 
-</form>
+
+</div>
+<div id="snackbar">{{Mensajes}}</div>

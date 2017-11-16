@@ -16,7 +16,9 @@ export class AdivinaElNumeroComponent implements OnInit {
   ocultarVerificar:boolean;
  
   constructor() { 
+    let local=JSON.parse(localStorage.getItem("login"));
     this.nuevoJuego = new JuegoAdivina();
+    this.nuevoJuego.jugador=local.usuario;
     console.info("numero Secreto:",this.nuevoJuego.numeroSecreto);  
     this.ocultarVerificar=false;
   }

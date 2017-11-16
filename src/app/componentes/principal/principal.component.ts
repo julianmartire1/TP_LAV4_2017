@@ -1,3 +1,5 @@
+
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -11,7 +13,16 @@ export class PrincipalComponent implements OnInit {
     isFirstOpen: true,
     isFirstDisabled: false
   };
-  constructor() {  }
+  constructor(private router : Router) {  }
+
+  irJuegos()
+  {
+    let usuario = localStorage.getItem("login");
+    if( usuario == null || usuario == "")
+      this.router.navigate(['/Login']);
+    else 
+      this.router.navigate(['/Juegos']);
+  }
 
   ngOnInit() {
   }
