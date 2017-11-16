@@ -29,20 +29,11 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    let local=JSON.parse(localStorage.getItem("usuario"));
-    if(local==null || local=="")
-    {
-      this.router.navigate(["/Registro"]);
-    }
   }
 
   Entrar() {
     this.logeando = false;
     let usuario = JSON.parse(localStorage.getItem("usuario"));
-    if(usuario==null || usuario=="")
-    {
-      this.router.navigate(["/Registro"]);
-    }
     console.log(usuario);
     setTimeout(() => {
 
